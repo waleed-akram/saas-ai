@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
-body {
+html,body {
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .common-div-style {

@@ -1,5 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Prompt } from "next/font/google";
 import "./globals.css";
+import SideBar from "./(my-components)/sidebar/page";
+import Prompts from "./(my-components)/prompt/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +22,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        {children}
+        <div className="grid grid-cols-8 grid-rows-4 w-full h-full bg-gray-500">
+          <SideBar />
+          <div className="grid col-span-6 row-span-3 border-1 border-black">
+            {children}
+          </div>
+          <Prompts />
+        </div>
       </body>
     </html>
   );
