@@ -7,10 +7,6 @@ html,body {
   min-height: 100vh;
 }
 
-.common-div-style {
-  @apply grid w-full cursor-pointer bg-blue-500 hover:bg-blue-800 text-white p-4 rounded-lg shadow-lg;
-}
-
 .btn{
-  @apply text-center bg-blue-500 rounded-md text-white p-2 hover:bg-blue-700 hover:cursor-pointer
+  @apply text-xs p-1 w-full hover:bg-white hover:rounded-lg hover:cursor-pointer
 }

@@ -9,7 +9,7 @@ export function ContextProvider({children}){
   return(
     <>
       <AllContext.Provider value={{context,setContext}}>
-
+        {children}
       </AllContext.Provider>
     </>
   )
