@@ -24,9 +24,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <div className="grid grid-cols-8 grid-rows-4 w-full h-full bg-gray-500">
+        <div className="grid grid-cols-8 grid-rows-4 w-full h-full">
           <SideBar />
-          <div className="grid col-span-6 row-span-3 border-1 border-black">
+          <div className="grid col-span-6 row-span-2 bg-indigo-50 pt-15">
             {children}
           </div>
           <Prompts />
