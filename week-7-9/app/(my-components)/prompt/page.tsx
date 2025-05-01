@@ -2,9 +2,12 @@
 
 import { useState, useRef, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import { RiRobot3Line } from "react-icons/ri";
 
-export default function Prompts() {
+export default function Prompts({
+  promptVisibility,
+}: {
+  promptVisibility: boolean;
+}) {
   let inputRef = useRef<HTMLTextAreaElement>(null);
 
   function PromptSection() {
@@ -52,33 +55,72 @@ export default function Prompts() {
     }
 
     return (
-      <div className="border-1 border-gray-300 shadow-md pr-2 pl-3 py-1 flex flex-row place-items-end rounded-2xl">
-        <div>
-          <textarea
-            rows={rows}
-            cols={10}
-            className="resize-none w-60 break-word max-h-20 focus:outline-none mt-0.5 text-xs"
-            placeholder="Type anything"
-            value={inputfield}
-            onChange={handleChange}
-            ref={inputRef}
-          />
+      <div className="place-items-center">
+        <span className="text-lg font-bold">What can I help with?</span>
+        <div className="border-1 border-gray-300 shadow-md pr-2 pl-3 py-1 flex flex-row place-items-end rounded-2xl">
+          <div>
+            <textarea
+              rows={rows}
+              cols={10}
+              className="resize-none w-60 break-word max-h-20 focus:outline-none mt-0.5 text-xs"
+              placeholder="Type anything"
+              value={inputfield}
+              onChange={handleChange}
+              ref={inputRef}
+            />
+          </div>
+          <button
+            className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1 px-1.5 outline-none"
+            onClick={handleClick}
+          >
+            <FaArrowUp className="text-white" />
+          </button>
         </div>
-        <button
-          className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1 px-1.5 outline-none"
-          onClick={handleClick}
-        >
-          <FaArrowUp className="text-white" />
-        </button>
       </div>
     );
   }
 
+  const prompts: string[] = [
+    "Why is the sun hot?",
+    "Debate on Pakistan's historical moments",
+    "Cats are better than dogs",
+    "Is AI the new trend?",
+  ];
+
+  const [showIcon, setShowIcon] = useState<boolean>(false);
+  const [indexIn, setIndex] = useState<number>(0);
+
+  function toggleIcon(index) {
+    setShowIcon(!showIcon);
+    setIndex(index);
+  }
+
   return (
-    <div className="grid col-span-10 row-span-2">
-      <div className="mx-auto h-auto">
-        <PromptSection />
-      </div>
+    <div className="ml-20">
+      {promptVisibility && (
+        <div className="grid col-span-10 row-span-2">
+          <div className="mx-auto h-auto flex flex-row gap-3">
+            <PromptSection />
+            <div className="prompt-div">
+              <p className="underline text-gray-500 text-xs">Try a prompt</p>
+              {prompts.map((prompt, index) => (
+                <div key={index}>
+                  <p
+                    className="prompt"
+                    onMouseEnter={() => toggleIcon(index)}
+                    onMouseLeave={() => toggleIcon(index)}
+                  >
+                    |{prompt}|{" "}
+                    {showIcon && index === indexIn && (
+                      <FaArrowUp className="text-black inline" />
+                    )}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

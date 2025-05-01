@@ -1,16 +1,14 @@
-"use client"
-import { useState,useContext,createContext } from "react"
+"use client";
+import { useContext, createContext } from "react";
 
-const AllContext = createContext("");
-export const useAllContext = useContext(AllContext);
-export function ContextProvider({children}){
-  const [context,setContext] = useState();
+const AllContext = createContext({
   
-  return(
+});
+export const useAllContext = useContext(AllContext);
+export function ContextProvider({ children }) {
+  return (
     <>
-      <AllContext.Provider value={{context,setContext}}>
-        {children}
-      </AllContext.Provider>
+      <AllContext.Provider value={"No Context"}>{children}</AllContext.Provider>
     </>
-  )
+  );
 }

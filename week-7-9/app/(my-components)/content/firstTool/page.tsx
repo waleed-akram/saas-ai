@@ -1,7 +1,8 @@
 export default function Mini() {
+  
   return (
-    <div className="m-auto">
-      <p>First Tool</p>
+    <div className="mx-auto">
+      <span className="text-lg font-bold italic">~Chat buddy~</span>
     </div>
   );
 }
