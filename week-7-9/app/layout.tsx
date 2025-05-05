@@ -23,17 +23,18 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children }) {
   const [promptVisibility,setPromptVisibility]  = useState<boolean>(false);
+  const [selectedTool,setSelectedTool] = useState<number>(0);
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <div className="grid grid-cols-12 grid-rows-4 w-full h-full">
-          <SideBar setPromptVisibility={setPromptVisibility}/>
+          <SideBar setPromptVisibility={setPromptVisibility} setSelectedTool={setSelectedTool}/>
           <div className="grid col-span-10 row-span-2 pt-15">
             {children}
           </div>
-          <Prompts promptVisibility={promptVisibility} />
+          <Prompts promptVisibility={promptVisibility} selectedTool={selectedTool} />
         </div>
       </body>
     </html>

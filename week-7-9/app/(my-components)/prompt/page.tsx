@@ -5,8 +5,10 @@ import { FaArrowUp } from "react-icons/fa";
 
 export default function Prompts({
   promptVisibility,
+  selectedTool,
 }: {
   promptVisibility: boolean;
+  selectedTool: boolean;
 }) {
   let inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -80,12 +82,30 @@ export default function Prompts({
     );
   }
 
-  const prompts: string[] = [
-    "Why is the sun hot?",
-    "Debate on Pakistan's historical moments",
-    "Cats are better than dogs",
-    "Is AI the new trend?",
+  const prompts: {for:string,prompt:string[]}[] = [
+    {
+      for: "text",
+      prompt: [
+        "Why is the sun hot?",
+        "Debate on Pakistan's historical moments",
+        "Cats are better than dogs",
+        "Is AI the new trend?",
+      ],
+    },
+    {
+      for: "image",
+      prompt: [
+        "Generate an image of a cool sword",
+        "Show me a cute cat",
+        "Imagine a new color",
+        "I want to see A tree in a trunk",
+      ],
+    },
   ];
+
+  let new_map = prompts.map((o,index)=>{
+    console.log(o.prompt[index])
+  })
 
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [indexIn, setIndex] = useState<number>(0);
@@ -103,20 +123,28 @@ export default function Prompts({
             <PromptSection />
             <div className="prompt-div">
               <p className="underline text-gray-500 text-xs">Try a prompt</p>
-              {prompts.map((prompt, index) => (
+              
+              
+              
+              {/* {prompts.map((o, index) => (
                 <div key={index}>
-                  <p
-                    className="prompt"
-                    onMouseEnter={() => toggleIcon(index)}
-                    onMouseLeave={() => toggleIcon(index)}
-                  >
-                    |{prompt}|{" "}
-                    {showIcon && index === indexIn && (
-                      <FaArrowUp className="text-black inline" />
-                    )}
-                  </p>
+                  {
+                  o.prompt.map((prompt)=>(
+                  <div>
+                    <p
+                      className="prompt"
+                      onMouseEnter={() => toggleIcon(index)}
+                      onMouseLeave={() => toggleIcon(index)}
+                    >
+                      |{prompt}|{" "}
+                      {showIcon && index === indexIn && (
+                        <FaArrowUp className="text-black inline" />
+                      )}
+                    </p>
+                  </div>
+                  ))}
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
