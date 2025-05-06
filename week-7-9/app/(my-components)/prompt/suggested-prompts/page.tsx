@@ -52,21 +52,25 @@ export default function SuggestedPrompts({
     <div className="prompt-div">
       <p className="underline text-gray-500 text-xs">Try a prompt</p>
 
-      {prompts[selectedTool - 1].prompt.map((p, index) => (
-        <div key={index}>
-          <p
-            className="prompt"
-            onMouseEnter={() => toggleIconShow(index)}
-            onMouseOut={() => toggleIconHide(index)}
-            onClick={(e) => handlePromptSelection(p)}
-          >
-            |{p}|{" "}
-            {showIcon && index === indexIn && (
-              <FaArrowUp className="text-black inline" />
-            )}
-          </p>
-        </div>
-      ))}
+      {selectedTool > 0 ? (
+        prompts[selectedTool - 1].prompt.map((p, index) => (
+          <div key={index}>
+            <p
+              className="prompt"
+              onMouseEnter={() => toggleIconShow(index)}
+              onMouseOut={() => toggleIconHide(index)}
+              onClick={(e) => handlePromptSelection(p)}
+            >
+              |{p}|{" "}
+              {showIcon && index === indexIn && (
+                <FaArrowUp className="text-black inline" />
+              )}
+            </p>
+          </div>
+        ))
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

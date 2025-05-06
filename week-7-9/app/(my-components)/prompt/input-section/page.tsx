@@ -5,23 +5,22 @@ import { FaArrowUp } from "react-icons/fa";
 
 export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt:Dispatch<SetStateAction<string>>}) {
   let inputRef = useRef<HTMLTextAreaElement>(null);
-  const [inputfield, setInputField] = useState<string>("");
   const [rows, setRows] = useState<number>(1);
 
   useEffect(() => {
-    if (inputfield.length > 35) {
+    if (prompt.length > 35) {
       setRows(2);
     }
-    if (inputfield.length > 70) {
+    if (prompt.length > 70) {
       setRows(3);
     }
-    if (inputfield.length > 105) {
+    if (prompt.length > 105) {
       setRows(4);
     }
-    if (inputfield.length === 0) {
+    if (prompt.length === 0) {
       setRows(1);
     }
-  }, [inputfield]);
+  }, [prompt]);
 
   function handleChange(e) {
     // if (inputfield.length > 39) {
@@ -36,13 +35,13 @@ export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt
     // if (inputfield.length === 0) {
     //   setRows(1);
     // }
-    setInputField(e.target.value);
+    setPrompt(e.target.value);
   }
 
   function handleClick() {
     if (inputRef.current.value !== "") {
       const value = inputRef.current.value;
-      setInputField("");
+      setPrompt("");
       alert(value);
       //promptresponse = true;
     }
@@ -58,7 +57,7 @@ export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt
             cols={10}
             className="resize-none w-60 break-word max-h-20 focus:outline-none mt-0.5 text-xs"
             placeholder="Type anything"
-            value={inputfield}
+            value={prompt}
             onChange={handleChange}
             ref={inputRef}
           />
