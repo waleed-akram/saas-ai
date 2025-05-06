@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import {useRef,useEffect,useState} from 'react'
+import { useRef, useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
-let inputRef = useRef<HTMLTextAreaElement>(null);
-
 export default function InputSection() {
+  let inputRef = useRef<HTMLTextAreaElement>(null);
   const [inputfield, setInputField] = useState<string>("");
   const [rows, setRows] = useState<number>(1);
 

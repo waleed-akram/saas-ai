@@ -14,14 +14,14 @@ export default function SideBar({
     window.addEventListener("resize", () => console.log(window.innerWidth));
   }, []);
 
-  function handleNavClick(e){
-    if(e.target.innerHTML==="Saas AI"){
+  function handleNavClick(n){
+    if(n==="home"){
       setSelectedTool(0)
       togglePromptFalse()
-    } else if(e.target.innerHTML==="Chat Buddy"){
+    } else if(n==="word"){
       setSelectedTool(1);
       togglePrompt()
-    } else if(e.target.innerHTML==="Imagine"){
+    } else if(n==="image"){
       setSelectedTool(2);
       togglePrompt()
     }
@@ -44,16 +44,16 @@ export default function SideBar({
         <div className=" inline bg-white py-1.5 px-1 rounded-full mr-0.5">
           <RiRobot3Line className="inline -mr-1 mb-1" size={20} />{" "}
         </div>
-        <Link href="/" className="text-gray-700 " onClick={e=>handleNavClick(e)}>
+        <Link href="/" className="text-gray-700 " onClick={e=>handleNavClick("home")}>
           SaaS AI
         </Link>
       </div>
       <div className="flex flex-col gap-1 px-1 -mt-50">
         <span className="text-xs font-bold p-1 ">~Tools~</span>
-        <Link href="/content/firstTool" className="btn" onClick={e=>handleNavClick(e)}>
+        <Link href="/content/firstTool" className="btn" onClick={e=>handleNavClick("word")}>
           Chat buddy
         </Link>
-        <Link href="/content/secondTool" className="btn" onClick={e=>handleNavClick(e)}>
+        <Link href="/content/secondTool" className="btn" onClick={e=>handleNavClick("image")}>
           Imagine
         </Link>
       </div>
