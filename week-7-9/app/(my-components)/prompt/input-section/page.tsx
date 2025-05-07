@@ -1,37 +1,62 @@
 "use client";
 
-import { useRef, useEffect, useState,Dispatch,SetStateAction } from "react";
+import { useRef, useState, Dispatch, SetStateAction } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
-export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt:Dispatch<SetStateAction<string>>}) {
+export default function InputSection({
+  prompt,
+  setPrompt,
+}: {
+  prompt: string;
+  setPrompt: Dispatch<SetStateAction<string>>;
+}) {
   let inputRef = useRef<HTMLTextAreaElement>(null);
   const [rows, setRows] = useState<number>(1);
 
-  useEffect(() => {
-    //promptresponse = true;
-    if (prompt.length > 35) {
-      setRows(2);
-    }
-    if (prompt.length > 70) {
-      setRows(3);
-    }
-    if (prompt.length > 105) {
-      setRows(4);
-    }
-    if (prompt.length === 0) {
-      setRows(1);
-    }
-  }, [prompt]);
-
   function handleChange(e) {
-    setPrompt(e.target.value);
+    if (e.key !== "Enter") {
+      setPrompt(e.target.value);
+      // if (field.scrollHeight > field.clientHeight) {
+      // field.style.height = `${field.scrollHeight}px`;
+      // }
+      const textarea = inputRef.current;
+      if (textarea) {
+        textarea.style.height = "0";
+
+        const scrollHeight = textarea.scrollHeight;
+        const maxHeight = parseInt(getComputedStyle(textarea).maxHeight, 10);
+        // const minHeight = parseInt(getComputedStyle(textarea).maxHeight, 10);
+
+        if (scrollHeight > maxHeight) {
+          textarea.style.height = `${maxHeight}px`;
+          textarea.style.overflowY = "auto";
+        } else {
+          textarea.style.height = `${scrollHeight}px`;
+          textarea.style.overflowY = "hidden";
+        }
+      }
+    }
+  }
+
+  function handleEnter(e) {
+    // console.log(e.key);
+    if (e.key === "Enter" && !e.shiftKey) {
+      if (inputRef.current.value.trim() !== "") {
+        const value = inputRef.current.value;
+        setPrompt("");
+        alert(value);
+      } else {
+        alert("No prompt entered!");
+        setPrompt("");
+      }
+    }
   }
 
   function handleClick() {
     if (inputRef.current.value !== "") {
       const value = inputRef.current.value;
       setPrompt("");
-      alert(value)
+      alert(value);
     }
   }
 
@@ -47,6 +72,7 @@ export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt
             placeholder="Type anything"
             value={prompt}
             onChange={handleChange}
+            onKeyDown={handleEnter}
             ref={inputRef}
           />
         </div>

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function Prompts() {
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
   const [selectedTool, setSelectedTool] = useState<number>(0);
   const [prompt, setPrompt] = useState<string>("");
   useEffect(() => {
