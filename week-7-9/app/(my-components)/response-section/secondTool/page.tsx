@@ -1,6 +1,6 @@
 export default function Mini() {
   return (
-    <div className="mx-auto mt-15">
+    <div className="mx-auto">
       <span className="text-lg font-bold italic">~Imagine~</span>
     </div>
   );

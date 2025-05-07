@@ -8,6 +8,7 @@ export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt
   const [rows, setRows] = useState<number>(1);
 
   useEffect(() => {
+    //promptresponse = true;
     if (prompt.length > 35) {
       setRows(2);
     }
@@ -23,18 +24,6 @@ export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt
   }, [prompt]);
 
   function handleChange(e) {
-    // if (inputfield.length > 39) {
-    //   setRows(2);
-    // }
-    // if (inputfield.length > 78) {
-    //   setRows(3);
-    // }
-    // if (inputfield.length > 117) {
-    //   setRows(4);
-    // }
-    // if (inputfield.length === 0) {
-    //   setRows(1);
-    // }
     setPrompt(e.target.value);
   }
 
@@ -42,8 +31,7 @@ export default function InputSection({prompt,setPrompt}:{prompt:string,setPrompt
     if (inputRef.current.value !== "") {
       const value = inputRef.current.value;
       setPrompt("");
-      alert(value);
-      //promptresponse = true;
+      alert(value)
     }
   }
 

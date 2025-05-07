@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction, RefObject } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 export default function SuggestedPrompts({
