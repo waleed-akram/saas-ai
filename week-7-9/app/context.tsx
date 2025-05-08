@@ -1,14 +1,15 @@
 "use client";
-import { useContext, createContext } from "react";
+import { createContext } from "react";
+import Prompts from "./(my-components)/prompt/page";
 
-const AllContext = createContext({
-  
-});
-export const useAllContext = useContext(AllContext);
+export const PromptContext = createContext("");
 export function ContextProvider({ children }) {
   return (
     <>
-      <AllContext.Provider value={"No Context"}>{children}</AllContext.Provider>
+      <PromptContext.Provider value={"No Prompt"}>
+        <div className="grid col-span-10 row-span-2 pt-15">{children}</div>
+        <Prompts />
+      </PromptContext.Provider>
     </>
   );
 }

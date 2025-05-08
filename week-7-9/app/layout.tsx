@@ -1,7 +1,8 @@
+
+import { ContextProvider } from "./context";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "./(my-components)/sidebar/page";
-import Prompts from "./(my-components)/prompt/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +27,7 @@ export default function RootLayout({ children }) {
       >
         <div className="grid grid-cols-12 grid-rows-4 w-full h-full">
           <SideBar />
-          <div className="grid col-span-10 row-span-2 pt-15">{children}</div>
-          <Prompts />
+          <ContextProvider>{children}</ContextProvider>
         </div>
       </body>
     </html>

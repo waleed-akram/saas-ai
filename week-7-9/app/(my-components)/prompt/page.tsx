@@ -1,15 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import InputSection from "./input-section/page";
 import SuggestedPrompts from "./suggested-prompts/page";
 import { usePathname } from "next/navigation";
+import { PromptContext } from "../../context";
 
 export default function Prompts() {
   const pathname = usePathname();
   // console.log(pathname);
   const [selectedTool, setSelectedTool] = useState<number>(0);
   const [prompt, setPrompt] = useState<string>("");
+  const usePromptContext = useContext(PromptContext);
   useEffect(() => {
     if (pathname === "/response-section/secondTool") {
       setSelectedTool(2);

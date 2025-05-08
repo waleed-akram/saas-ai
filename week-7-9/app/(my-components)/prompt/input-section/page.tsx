@@ -28,8 +28,8 @@ export default function InputSection({
       if (scrollHeight > maxHeight) {
         textarea.style.height = `${maxHeight}px`;
         textarea.style.overflowY = "auto";
-      } else if (maxHeight === 0) {
-        textarea.style.height = `0`;
+      } else if (scrollHeight === 0) {
+        textarea.style.height = `0px`;
         textarea.style.overflowY = "hidden";
       } else {
         textarea.style.height = `${scrollHeight}px`;
@@ -41,7 +41,7 @@ export default function InputSection({
   function handleChange(e) {
     if (e.key !== "Enter") {
       setPrompt(e.target.value);
-      setFieldHeight()
+      setFieldHeight();
     } else {
       setPrompt("");
     }
@@ -51,10 +51,10 @@ export default function InputSection({
     if (e.key === "Enter" && !e.shiftKey && focus) {
       e.preventDefault();
       if (prompt.trim() !== "") {
+        alert(prompt);
         setFocus(false);
         setPrompt("");
-        setFieldHeight()
-        alert(prompt);
+        setFieldHeight();
       } else if (prompt.trim() === "") {
         alert("No prompt entered!");
         setPrompt("");
@@ -67,7 +67,7 @@ export default function InputSection({
       const value = prompt;
       setPrompt("");
       alert(value);
-      setFieldHeight()
+      setFieldHeight();
     }
   }
 
@@ -86,7 +86,6 @@ export default function InputSection({
             onKeyDown={handleEnter}
             ref={inputRef}
           />
-          {/* <textarea/> */}
         </div>
         <button
           className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1 px-1.5 outline-none"
