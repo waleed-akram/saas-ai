@@ -1,13 +1,13 @@
-"use client";
+// "use client";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Link from "next/link";
 import { RiRobot3Line } from "react-icons/ri";
 
 export default function SideBar() {
-  useEffect(() => {
-    window.addEventListener("resize", () => console.log(window.innerWidth));
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => console.log(window.innerWidth));
+  // }, []);
 
   return (
     <div className="grid col-span-2 row-span-4 w-full h-full  min-w-40 pl-2 bg-gray-100">

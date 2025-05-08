@@ -61,7 +61,7 @@ export default function SuggestedPrompts({
               onMouseOut={() => toggleIconHide(index)}
               onClick={(e) => handlePromptSelection(p)}
             >
-              |{p}|{" "}
+              |{p}|
               {showIcon && index === indexIn && (
                 <FaArrowUp className="text-black inline" />
               )}
