@@ -11,7 +11,7 @@ export default function Prompts() {
   // console.log(pathname);
   const [selectedTool, setSelectedTool] = useState<number>(0);
   const [prompt, setPrompt] = useState<string>("");
-  const usePromptContext = useContext(PromptContext);
+  // const usePromptContext = useContext(PromptContext);
   useEffect(() => {
     if (pathname === "/response-section/secondTool") {
       setSelectedTool(2);
