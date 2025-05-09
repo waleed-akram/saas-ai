@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect,useContext } from "react";
-import InputSection from "./input-section/page";
-import SuggestedPrompts from "./suggested-prompts/page";
+import InputSection from "./inputsection/inputeSection";
+import SuggestedPrompts from "./suggestedprompts/suggestedPrompts";
 import { usePathname } from "next/navigation";
 import { PromptContext } from "../../context";
 
