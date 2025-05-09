@@ -24,7 +24,7 @@ export default function Prompts() {
 
   if (selectedTool === 1 || selectedTool === 2) {
     return (
-      <div className="ml-20">
+      <div className="mx-auto">
         <div className="grid col-span-10 row-span-2">
           <div className="mx-auto h-auto flex flex-row gap-3">
             <InputSection prompt={prompt} setPrompt={setPrompt} />
@@ -37,7 +37,7 @@ export default function Prompts() {
       </div>
     );
   } else if (selectedTool === 0) {
-    <div className="ml-20">
+    <div className="mx-auto">
       <div className="w-full no-wrap text-sm bg-gray-200 min-w-200 text-center p-5 rounded-md text-black">
         Loading...
       </div>
