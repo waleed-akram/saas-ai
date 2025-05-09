@@ -4,7 +4,7 @@ import { RiRobot3Line } from "react-icons/ri";
 export default function SideBar() {
   
   return (
-    <div className="grid col-span-2 row-span-4 w-full h-full  min-w-40 pl-2 bg-gray-100">
+    <div className="grid col-span-2 row-span-4 w-full h-full breakpoints-sidebar pl-2 bg-gray-100">
       <div className="mt-10 text-sm break-normal">
         <div className=" inline bg-white py-1.5 px-1 rounded-full mr-0.5">
           <RiRobot3Line className="inline -mr-1 mb-1" size={20} />{" "}

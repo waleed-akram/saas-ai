@@ -1,8 +1,8 @@
-import SecontToolResponseSection from "./secondTool";
+import SecontToolResponseSection from "../../../../components/response-section/secondTool/secondTool";
 
 export default function Mini() {
   return (
-    <div className="mx-auto place-items-center">
+    <div className="m-auto place-items-center">
       <span className="text-lg font-bold italic">~Imagine~</span>
       <SecontToolResponseSection />
     </div>

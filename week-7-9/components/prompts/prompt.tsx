@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import InputSection from "./inputsection/inputeSection";
 import SuggestedPrompts from "./suggestedprompts/suggestedPrompts";
 import { usePathname } from "next/navigation";
-import { PromptContext } from "../../context";
+import { PromptContext } from "../../app/context";
 
 export default function Prompt() {
   const pathname = usePathname();
@@ -27,7 +27,7 @@ export default function Prompt() {
 
   if (selectedTool === 1 || selectedTool === 2) {
     return (
-      <div className="mx-auto grid col-span-10 row-span-4 w-full h-full">
+      <div className="mx-auto grid col-span-10 row-span-4 w-full h-full border-black border-1">
         <div className="mx-auto h-auto flex flex-row gap-3">
           <InputSection prompt={prompt} setPrompt={setPrompt} />
           <SuggestedPrompts selectedTool={selectedTool} setPrompt={setPrompt} />
