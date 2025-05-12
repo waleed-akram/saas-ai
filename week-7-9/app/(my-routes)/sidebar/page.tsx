@@ -10,7 +10,7 @@ export default function SideBar() {
           <RiRobot3Line
             className="inline -mr-2 mb-1 bg-blue-500 text-white p-1.5 rounded-full"
             size={40}
-          />{" "}
+          />
         </div>
         <Link href="/" className="text-gray-700 ">
           SaaS AI

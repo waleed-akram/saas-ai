@@ -9,8 +9,8 @@ export default function MainView() {
       </h1>
       <p className="text-lg sm:text-xl text-center max-w-2xl mb-12 text-gray-600">
         Streamline your workflow with two powerful tools designed to boost
-        creativity and communication. Whether you're brainstorming ideas or
-        holding a conversation with an AI, we've got you covered.
+        creativity and communication. Whether you&apos;re brainstorming ideas or
+        holding a conversation with an AI, we&apos;ve got you covered.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-8 w-full max-w-4xl justify-center">
