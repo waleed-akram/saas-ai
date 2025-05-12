@@ -50,7 +50,7 @@ export default function SuggestedPrompts({
 
   return (
     <div className="prompt-div">
-      <p className="underline text-gray-500 text-xs">Try a prompt</p>
+      <p className="underline text-gray-500 text-2xl">Try a prompt</p>
 
       {selectedTool > 0 ? (
         prompts[selectedTool - 1].prompt.map((p, index) => (

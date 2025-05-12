@@ -28,14 +28,16 @@ export default function InputSection({
       if (scrollHeight > maxHeight) {
         textarea.style.height = `${maxHeight}px`;
         textarea.style.overflowY = "auto";
-      } else if (scrollHeight === 0) {
-        textarea.style.height = `0px`;
-        textarea.style.overflowY = "hidden";
       } else {
         textarea.style.height = `${scrollHeight}px`;
         textarea.style.overflowY = "hidden";
       }
     }
+  }
+
+  function resetHeight() {
+    const textarea = inputRef.current;
+    textarea.style.height = `2rem`;
   }
 
   function handleChange(e) {
@@ -54,7 +56,7 @@ export default function InputSection({
         alert(prompt);
         setFocus(false);
         setPrompt("");
-        setFieldHeight();
+        resetHeight();
       } else if (prompt.trim() === "") {
         alert("No prompt entered!");
         setPrompt("");
@@ -72,13 +74,15 @@ export default function InputSection({
   }
 
   return (
-    <div className="place-items-center">
-      <span className="text-lg font-bold">What can I help with?</span>
-      <div className="border-1 border-gray-300 shadow-md pr-2 pl-3 py-1 flex flex-row place-items-end rounded-2xl">
-        <div>
+    <div className="place-items-center p-5">
+      <span className="text-5xl font-bold">What can I help with?</span>
+      <div className="mt-2 border-1 border-gray-300 shadow-lg pl-3 py-1 flex flex-row place-items-center rounded-4xl min-w-120 min-h-14">
+        {/* <textarea rows={4} className="max-h-50"></textarea> */}
+        <div className="overflow-none">
           <textarea
             cols={10}
-            className="resize-none w-60 break-word max-h-20 focus:outline-none text-xs -mb-0.5"
+            // rows={2}
+            className="max-h-30 resize-none w-150 break-word focus:outline-none text-lg h-7 ml-1"
             placeholder="Type anything"
             value={prompt}
             onFocus={triggerFocus}
@@ -87,12 +91,12 @@ export default function InputSection({
             ref={inputRef}
           />
         </div>
-        <button
-          className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1 px-1.5 outline-none"
+        <div
+          className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1 px-1.5 mr-2 outline-none"
           onClick={handleClick}
         >
-          <FaArrowUp className="text-white" />
-        </button>
+          <FaArrowUp className="text-white" size={25}/>
+        </div>
       </div>
     </div>
   );
