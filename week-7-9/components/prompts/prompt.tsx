@@ -1,27 +1,31 @@
 "use client";
 
-import { useState, useEffect, useContext } from "react";
+import { useEffect } from "react";
 import InputSection from "./inputsection/inputeSection";
 import SuggestedPrompts from "./suggestedprompts/suggestedPrompts";
 import { usePathname } from "next/navigation";
-import { PromptContext } from "../../app/context";
+import { usePromptContext } from "../../app/context";
 
 export default function Prompt() {
   const pathname = usePathname();
-  console.log(pathname);
-  const [selectedTool, setSelectedTool] = useState<number>(0);
-  const [prompt, setPrompt] = useState<string>("");
+  // console.log(pathname);
+  // const [selectedTool, setSelectedTool] = useState<number>(0);
+  // const [prompt, setPrompt] = useState<string>("");
   // const usePromptContext = useContext(PromptContext);
+  const {selectedTool,updateSelectedTool,updatePrompt} = usePromptContext();
   useEffect(() => {
     if (pathname === "/response-section/secondTool") {
-      console.log("Routing to Imagine")
-      setSelectedTool(2);
+      // console.log("Routing to Imagine");
+      updatePrompt("")
+      updateSelectedTool(2);
     } else if (pathname === "/response-section/firstTool") {
-      console.log("Routing to Chat Buddy")
-      setSelectedTool(1);
+      // console.log("Routing to Chat Buddy");
+      updatePrompt("")
+      updateSelectedTool(1);
     } else if (pathname === "/") {
-      console.log("Routing to Home")
-      setSelectedTool(0);
+      // console.log("Routing to Home");
+      updatePrompt("")
+      updateSelectedTool(0);
     }
   }, [pathname]);
 
@@ -29,8 +33,8 @@ export default function Prompt() {
     return (
       <div className="mx-auto pt-5 grid col-span-10 row-span-4 w-full h-full">
         <div className="mx-auto h-auto flex flex-col gap-3 place-items-center">
-          <InputSection prompt={prompt} setPrompt={setPrompt} />
-          <SuggestedPrompts selectedTool={selectedTool} setPrompt={setPrompt} />
+          <InputSection />
+          <SuggestedPrompts />
         </div>
       </div>
     );

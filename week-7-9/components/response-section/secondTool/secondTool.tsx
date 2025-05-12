@@ -1,4 +1,5 @@
 import ResponseSection from "../responsesection/responseSection";
-export default function SecontToolResponseSection() {
-  return <ResponseSection />;
+
+export default function SecontToolResponseSection({params}:{params:string}) {
+  return <ResponseSection params={params}/>;
 }

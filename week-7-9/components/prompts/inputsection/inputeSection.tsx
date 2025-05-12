@@ -1,20 +1,38 @@
 "use client";
 
-import { useRef, useState, Dispatch, SetStateAction } from "react";
+import { useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { usePromptContext } from "../../../app/context";
+import { useRouter } from "next/navigation";
+// import { handleSubmit } from "../promptrequest/promptRequest";
 
-export default function InputSection({
-  prompt,
-  setPrompt,
-}: {
-  prompt: string;
-  setPrompt: Dispatch<SetStateAction<string>>;
-}) {
+export default function InputSection() {
+  const route = useRouter();
+  const { prompt, updatePrompt, selectedTool } = usePromptContext();
   const [focus, setFocus] = useState<boolean>(false);
   let inputRef = useRef<HTMLTextAreaElement>(null);
 
   function triggerFocus() {
     setFocus(true);
+  }
+
+  const handleSubmit = () => {
+    // const { updatePrompt,selectedTool } = usePromptContext();
+    if(selectedTool===1){
+      console.log("Tool 1 prompt sent as request")
+      updatePrompt("")
+      route.push(`/response-section/firstTool/response?value=${encodeURIComponent(prompt)}`)
+      return("Prompt: " + prompt + "\nStatus: success")
+    } else if(selectedTool===2){
+      console.log("Tool 2 prompt sent as request")
+      updatePrompt("")
+      route.push(`/response-section/secondTool/response?value=${encodeURIComponent(prompt)}`)
+      return("Prompt: " + prompt + "\nStatus: success")
+    } else{
+      console.log("This block is not even going to do anything")
+      updatePrompt("")
+      return("failure")
+    }
   }
 
   function setFieldHeight() {
@@ -42,28 +60,27 @@ export default function InputSection({
 
   function handleChange(e) {
     if (e.key !== "Enter") {
-      setPrompt(e.target.value);
+      updatePrompt(e.target.value);
+      // updatePrompt(prompt);
       setFieldHeight();
     } else {
-      setPrompt("");
+      updatePrompt("");
     }
-  }
-
-  function handleSubmit(){
-    
   }
 
   function handleEnter(e) {
     if (e.key === "Enter" && !e.shiftKey && focus) {
       e.preventDefault();
       if (prompt.trim() !== "") {
-        alert(prompt);
+        // alert(prompt);
+        const result = handleSubmit();
+        console.log(result);
         setFocus(false);
-        setPrompt("");
+        updatePrompt("");
         resetHeight();
       } else if (prompt.trim() === "") {
         alert("No prompt entered!");
-        setPrompt("");
+        updatePrompt("");
       }
     }
   }
@@ -71,8 +88,10 @@ export default function InputSection({
   function handleClick() {
     if (prompt !== "") {
       const value = prompt;
-      setPrompt("");
-      alert(value);
+      // updatePrompt("");
+      // alert(value);
+      const result = handleSubmit();
+      console.log(result);
       setFieldHeight();
     }
   }
@@ -99,7 +118,7 @@ export default function InputSection({
           className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1.5 px-1.5 mr-2 outline-none"
           onClick={handleClick}
         >
-          <FaArrowUp className="text-white" size={25}/>
+          <FaArrowUp className="text-white" size={25} />
         </div>
       </div>
     </div>

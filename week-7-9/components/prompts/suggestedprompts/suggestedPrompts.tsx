@@ -1,17 +1,13 @@
 "use client";
 
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { usePromptContext } from "../../../app/context";
 
-export default function SuggestedPrompts({
-  selectedTool,
-  setPrompt,
-}: {
-  selectedTool: number;
-  setPrompt: Dispatch<SetStateAction<string>>;
-}) {
+export default function SuggestedPrompts() {
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [indexIn, setIndex] = useState<number>(0);
+  const { updatePrompt, selectedTool } = usePromptContext();
 
   function toggleIconShow(index) {
     setShowIcon(true);
@@ -45,15 +41,15 @@ export default function SuggestedPrompts({
   ];
 
   function handlePromptSelection(p) {
-    setPrompt(p);
+    updatePrompt(p);
   }
 
   return (
     <div className="prompt-div">
       <p className="underline text-gray-500 text-2xl">Try a prompt</p>
 
-      {selectedTool > 0 ? (
-        prompts[selectedTool - 1].prompt.map((p, index) => (
+      {selectedTool && selectedTool > 0 ? (
+        prompts[selectedTool-1].prompt.map((p, index) => (
           <div key={index}>
             <p
               className="prompt"
