@@ -27,7 +27,7 @@ export default function Prompt() {
 
   if (selectedTool === 1 || selectedTool === 2) {
     return (
-      <div className="mx-auto pt-5 grid col-span-10 row-span-4 w-full h-full border-black border-1">
+      <div className="mx-auto pt-5 grid col-span-10 row-span-4 w-full h-full">
         <div className="mx-auto h-auto flex flex-col gap-3 place-items-center">
           <InputSection prompt={prompt} setPrompt={setPrompt} />
           <SuggestedPrompts selectedTool={selectedTool} setPrompt={setPrompt} />

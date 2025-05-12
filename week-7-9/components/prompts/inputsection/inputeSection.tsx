@@ -49,6 +49,10 @@ export default function InputSection({
     }
   }
 
+  function handleSubmit(){
+    
+  }
+
   function handleEnter(e) {
     if (e.key === "Enter" && !e.shiftKey && focus) {
       e.preventDefault();
