@@ -1,5 +1,3 @@
-import SecontToolResponseSection from "../../../../components/response-section/secondTool/secondTool";
-
 export default function Page() {
   return (
     <div className="m-auto place-items-center">

@@ -14,7 +14,7 @@ body {
 }
 
 .btn {
-  @apply text-xl pl-1 py-1.5 w-full text-gray-700 hover:bg-gray-300 hover:rounded-lg hover:cursor-pointer;
+  @apply inline-block mt-2 text-white px-4 py-2 rounded  bg-indigo-600  hover:bg-indigo-800 transition;
 }
 
 .prompt-div {
