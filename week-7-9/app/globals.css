@@ -14,7 +14,7 @@ body {
 }
 
 .btn {
-  @apply text-[10px] px-1 py-1.5 w-full text-gray-700 hover:bg-gray-200 hover:rounded-lg hover:cursor-pointer;
+  @apply text-xl pl-1 py-1.5 w-full text-gray-700 hover:bg-gray-300 hover:rounded-lg hover:cursor-pointer;
 }
 
 .prompt-div {
@@ -22,7 +22,7 @@ body {
 }
 
 .prompt {
-  @apply text-lg m-1 text-gray-700 hover:cursor-pointer hover:bg-gray-300 py-1.5 rounded-lg;
+  @apply text-2xl m-1 text-gray-700 hover:cursor-pointer hover:bg-gray-300 py-1.5 rounded-lg;
 }
 
 .breakpoints-sidebar {

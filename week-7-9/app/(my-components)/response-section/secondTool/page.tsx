@@ -3,7 +3,7 @@ import SecontToolResponseSection from "../../../../components/response-section/s
 export default function Mini() {
   return (
     <div className="m-auto place-items-center">
-      <span className="text-lg font-bold italic">~Imagine~</span>
+      <span className="text-4xl font-bold italic">~Imagine~</span>
       <SecontToolResponseSection />
     </div>
   );
