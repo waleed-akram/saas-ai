@@ -98,8 +98,7 @@ export default function InputSection() {
 
   return (
     <div className="place-items-center p-5">
-      <span className="text-5xl font-bold">What can I help with?</span>
-      <div className="mt-2 border-1 border-gray-300 shadow-lg pl-3 py-1 flex flex-row place-items-center rounded-4xl min-w-120 min-h-14">
+      <div className="border-1 border-gray-300 shadow-lg pl-3 py-1 flex flex-row place-items-center rounded-4xl min-w-120 min-h-14">
         {/* <textarea rows={4} className="max-h-50"></textarea> */}
         <div className="overflow-none">
           <textarea

@@ -48,7 +48,7 @@ export function ContextProvider({ children }: props) {
   return (
     <>
       <PromptContext.Provider value={values}>
-        <div className="grid col-span-10 row-span-2">{children}</div>
+        <div className="grid col-span-10 row-span-2"><div className="flex flex-col justify-end">{children}</div></div>
         <Prompts />
       </PromptContext.Provider>
     </>
