@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { usePromptContext } from "../../../app/context";
 import { useRouter } from "next/navigation";
-// import { handleSubmit } from "../promptrequest/promptRequest";
 
 export default function InputSection() {
   const route = useRouter();
@@ -17,23 +16,25 @@ export default function InputSection() {
   }
 
   const handleSubmit = () => {
-    // const { updatePrompt,selectedTool } = usePromptContext();
-    if(selectedTool===1){
-      console.log("Tool 1 prompt sent as request")
-      updatePrompt("")
-      route.push(`/response-section/firstTool/response?value=${encodeURIComponent(prompt)}`)
-      return("Prompt: " + prompt + "\nStatus: success")
-    } else if(selectedTool===2){
-      console.log("Tool 2 prompt sent as request")
-      updatePrompt("")
-      route.push(`/response-section/secondTool/response?value=${encodeURIComponent(prompt)}`)
-      return("Prompt: " + prompt + "\nStatus: success")
-    } else{
-      console.log("This block is not even going to do anything")
-      updatePrompt("")
-      return("failure")
+    if (selectedTool === 1) {
+      updatePrompt("");
+      route.push(
+        `/response-section/firstTool/response?value=${encodeURIComponent(
+          prompt
+        )}`
+      );
+    } else if (selectedTool === 2) {
+      updatePrompt("");
+      route.push(
+        `/response-section/secondTool/response?value=${encodeURIComponent(
+          prompt
+        )}`
+      );
+    } else {
+      updatePrompt("");
+      return "failure";
     }
-  }
+  };
 
   function setFieldHeight() {
     const textarea = inputRef.current;
@@ -61,7 +62,6 @@ export default function InputSection() {
   function handleChange(e) {
     if (e.key !== "Enter") {
       updatePrompt(e.target.value);
-      // updatePrompt(prompt);
       setFieldHeight();
     } else {
       updatePrompt("");
@@ -72,9 +72,7 @@ export default function InputSection() {
     if (e.key === "Enter" && !e.shiftKey && focus) {
       e.preventDefault();
       if (prompt.trim() !== "") {
-        // alert(prompt);
         const result = handleSubmit();
-        console.log(result);
         setFocus(false);
         updatePrompt("");
         resetHeight();
@@ -88,10 +86,7 @@ export default function InputSection() {
   function handleClick() {
     if (prompt !== "") {
       const value = prompt;
-      // updatePrompt("");
-      // alert(value);
       const result = handleSubmit();
-      console.log(result);
       setFieldHeight();
     }
   }
@@ -99,11 +94,9 @@ export default function InputSection() {
   return (
     <div className="place-items-center p-5">
       <div className="border-1 border-gray-300 shadow-lg pl-3 py-1 flex flex-row place-items-center rounded-4xl min-w-120 min-h-14">
-        {/* <textarea rows={4} className="max-h-50"></textarea> */}
         <div className="overflow-none">
           <textarea
             cols={10}
-            // rows={2}
             className="max-h-30 resize-none w-150 break-word focus:outline-none text-lg h-7 ml-1"
             placeholder="Type anything"
             value={prompt}

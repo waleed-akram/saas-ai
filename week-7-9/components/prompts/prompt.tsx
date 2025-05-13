@@ -8,22 +8,15 @@ import { usePromptContext } from "../../app/context";
 
 export default function Prompt() {
   const pathname = usePathname();
-  // console.log(pathname);
-  // const [selectedTool, setSelectedTool] = useState<number>(0);
-  // const [prompt, setPrompt] = useState<string>("");
-  // const usePromptContext = useContext(PromptContext);
   const {selectedTool,updateSelectedTool,updatePrompt} = usePromptContext();
   useEffect(() => {
     if (pathname === "/response-section/secondTool") {
-      // console.log("Routing to Imagine");
       updatePrompt("")
       updateSelectedTool(2);
     } else if (pathname === "/response-section/firstTool") {
-      // console.log("Routing to Chat Buddy");
       updatePrompt("")
       updateSelectedTool(1);
     } else if (pathname === "/") {
-      // console.log("Routing to Home");
       updatePrompt("")
       updateSelectedTool(0);
     }
