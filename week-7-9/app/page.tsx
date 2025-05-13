@@ -26,7 +26,7 @@ export default function MainView() {
             href="/response-section/firstTool"
             className="inline-block mt-2 text-white bg-blue-500 px-4 py-2 rounded hover:bg-blue-600 transition"
           >
-            Chat buddy
+            Try out Chat buddy
           </Link>
         </div>
 
@@ -42,7 +42,7 @@ export default function MainView() {
             href="/response-section/secondTool"
             className="inline-block mt-2 text-white bg-purple-500 px-4 py-2 rounded hover:bg-purple-600 transition"
           >
-            Imagine
+            Try out Imagine
           </Link>
         </div>
       </div>
