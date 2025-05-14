@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function ResponseSection({ params }: { params: string }) {
+export default function ResponseSection({ params,sentFrom }: { params: string,sentFrom:string }) {
   const [output, setOutput] = useState<string>("");
   useEffect(() => {
     if (params) {
@@ -34,7 +34,7 @@ export default function ResponseSection({ params }: { params: string }) {
     <div className=" bg-gray-200 place-items-center h-full rounded-md p-5 box-border min-w-250 min-h-80 m-4 overflow-hidden border-1 border-black">
       <div className="w-full h-full max-h-85">
         <p className="no-underline text-3xl w-full h-fit border-gray-500 p-5 rounded-md shadow-md border-3 resize-none">You: {params}</p>
-        <textarea
+        <textarea readOnly
           className="mt-5 no-underline text-3xl w-full h-fit min-h-78 max-h-78 border-gray-500 p-5 rounded-md shadow-md border-3 resize-none"
           value={`Chat Buddy: ${output}`}
         />

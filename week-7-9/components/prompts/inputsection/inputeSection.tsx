@@ -5,9 +5,10 @@ import { FaArrowUp } from "react-icons/fa";
 import { usePromptContext } from "../../../app/context";
 import { useRouter } from "next/navigation";
 
-export default function InputSection() {
+export default function InputSection({ sentFrom }: { sentFrom: string }) {
   const route = useRouter();
   const { prompt, updatePrompt, selectedTool } = usePromptContext();
+  // const [usersimage,setUserImage] = useState<string>("");
   const [focus, setFocus] = useState<boolean>(false);
   let inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -113,6 +114,17 @@ export default function InputSection() {
           <FaArrowUp className="text-white" size={25} />
         </div>
       </div>
+      {/* <div className="w-fit">
+        {sentFrom && sentFrom === "imagine" ? (
+          <div className="border-gray-200 border-1 p-2 w-fit rounded-md mt-5 text-center bg-pink-600 text-white hover:cursor-pointer">
+            <input type="file" id="file" accept="image/*" className="hover:cursor-pointer hidden"/>
+            <label htmlFor="file" className="hover:cursor-pointer">Select an image</label>
+            <div>{usersImage}</div>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div> */}
     </div>
   );
 }

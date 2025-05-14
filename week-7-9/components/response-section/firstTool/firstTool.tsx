@@ -5,5 +5,5 @@ export default function FirstToolResponseSection({
 }: {
   params: string;
 }) {
-  return <ResponseSection params={params} />;
+  return <ResponseSection params={params} sentFrom={"chatbuddy"}/>;
 }

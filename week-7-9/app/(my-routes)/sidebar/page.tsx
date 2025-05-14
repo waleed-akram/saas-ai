@@ -22,10 +22,10 @@ export default function SideBar() {
           <FaComments className="text-xl inline mr-2 text-white" />
           Chat buddy
         </Link>
-        <Link href="/response-section/secondTool" className="btn">
+        {/* <Link href="/response-section/secondTool" className="btn">
           <FaMagic className="text-xl inline mr-2 text-white" />
           Imagine
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

@@ -6,12 +6,17 @@ import { usePromptContext } from "../../../app/context";
 
 export default function SuggestedPrompts() {
   const [showIcon, setShowIcon] = useState<boolean>(false);
+  const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
   const [indexIn, setIndex] = useState<number>(0);
   const { updatePrompt, selectedTool } = usePromptContext();
 
   function toggleIconShow(index) {
     setShowIcon(true);
     setIndex(index);
+  }
+
+  function toggleSuggestions() {
+    setShowSuggestion(!showSuggestion);
   }
 
   function toggleIconHide(index) {
@@ -45,28 +50,34 @@ export default function SuggestedPrompts() {
   }
 
   return (
-    <div className="prompt-div">
-      <p className="underline text-gray-500 text-2xl">Try a prompt</p>
-
-      {selectedTool && selectedTool > 0 ? (
-        prompts[selectedTool-1].prompt.map((p, index) => (
-          <div key={index}>
-            <p
-              className="prompt"
-              onMouseEnter={() => toggleIconShow(index)}
-              onMouseOut={() => toggleIconHide(index)}
-              onClick={(e) => handlePromptSelection(p)}
-            >
-              |{p}|
-              {showIcon && index === indexIn && (
-                <FaArrowUp className="text-black inline" />
-              )}
-            </p>
-          </div>
-        ))
-      ) : (
-        <div></div>
-      )}
-    </div>
+    <>
+      <p
+        className="underline text-gray-500 select-none text-2xl cursor-pointer"
+        onClick={toggleSuggestions}
+      >
+        {showSuggestion?"Hide Suggestions":"Try Suggestions"}
+      </p>
+      <div className="flex flex-row gap-3 max-w-200 flex-wrap justify-center content-evenly">
+        {showSuggestion && selectedTool && selectedTool > 0 ? (
+          prompts[selectedTool - 1].prompt.map((p, index) => (
+            <div key={index}>
+              <p
+                className="prompt"
+                onMouseEnter={() => toggleIconShow(index)}
+                onMouseOut={() => toggleIconHide(index)}
+                onClick={(e) => handlePromptSelection(p)}
+              >
+                {p}
+                {showIcon && index === indexIn && (
+                  <FaArrowUp className="text-black -mt-1 inline" />
+                )}
+              </p>
+            </div>
+          ))
+        ) : (
+          <div></div>
+        )}
+      </div>
+    </>
   );
 }

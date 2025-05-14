@@ -22,12 +22,15 @@ body {
 }
 
 .prompt {
-  @apply text-2xl m-1 text-gray-700 hover:cursor-pointer hover:bg-gray-300 py-1.5 rounded-lg;
+  @apply text-2xl text-gray-700 bg-gray-200 hover:cursor-pointer p-2 rounded-full select-none;
 }
 
 .breakpoints-sidebar {
   @apply xl:min-w-40 md:min-w-20 sm:min-w-10
 }
-.breakpoints-prompt {
-  /* @apply xl:min-w- md:min-w- sm:min-w- xs:min-w- */
+
+.unclickable{
+  pointer-events: none;
+  user-select: none;
 }
+

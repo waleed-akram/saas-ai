@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     console.log("Response from OpenRouter:", data);
 
     const output = data.choices[0]?.message?.content || "No response.";
-    // console.log(output)
+    console.log(output)
     return NextResponse.json({ output });
   } catch (error) {
     console.error("Error in /api route:", error);
