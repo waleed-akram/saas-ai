@@ -33,3 +33,10 @@ body {
   user-select: none;
 }
 
+.roundedPrompt{
+  @apply rounded-tl-[3rem] rounded-bl-[3rem] rounded-br-[3rem]
+}
+
+.roundedResponse{
+  @apply rounded-tr-[5rem] rounded-br-[5rem] rounded-bl-[5rem]
+}

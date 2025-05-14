@@ -16,7 +16,7 @@ export default function SideBar() {
           SaaS AI
         </Link>
       </div>
-      <div className="flex flex-col gap-1 px-1 -mt-50 mr-1.5">
+      <div className="flex flex-col gap-1 px-2 -mt-50 mr-1.5">
         <span className="text-3xl p-1 ">~Our Tools~</span>
         <Link href="/response-section/firstTool" className="btn">
           <FaComments className="text-xl inline mr-2 text-white" />

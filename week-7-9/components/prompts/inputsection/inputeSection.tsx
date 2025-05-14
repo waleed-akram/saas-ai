@@ -98,7 +98,7 @@ export default function InputSection({ sentFrom }: { sentFrom: string }) {
         <div className="overflow-none">
           <textarea
             cols={10}
-            className="max-h-30 resize-none w-150 break-word focus:outline-none text-lg h-7 ml-1"
+            className="max-h-30 resize-none w-150 break-word focus:outline-none text-lg h-6 ml-1"
             placeholder="Type anything"
             value={prompt}
             onFocus={triggerFocus}
@@ -114,6 +114,7 @@ export default function InputSection({ sentFrom }: { sentFrom: string }) {
           <FaArrowUp className="text-white" size={25} />
         </div>
       </div>
+      
       {/* <div className="w-fit">
         {sentFrom && sentFrom === "imagine" ? (
           <div className="border-gray-200 border-1 p-2 w-fit rounded-md mt-5 text-center bg-pink-600 text-white hover:cursor-pointer">
