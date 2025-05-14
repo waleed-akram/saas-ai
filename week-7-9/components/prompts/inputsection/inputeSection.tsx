@@ -108,7 +108,7 @@ export default function InputSection({ sentFrom }: { sentFrom: string }) {
           />
         </div>
         <div
-          className="bg-black cursor-pointer hover:bg-gray-600 hover:border-none h-fit rounded-full p-1.5 px-1.5 mr-2 outline-none"
+          className="bg-indigo-500 cursor-pointer hover:bg-indigo-800 hover:border-none h-fit rounded-full p-1.5 px-1.5 mr-2 outline-none"
           onClick={handleClick}
         >
           <FaArrowUp className="text-white" size={25} />

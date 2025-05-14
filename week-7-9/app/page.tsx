@@ -31,7 +31,7 @@ export default function MainView() {
         </div>
 
         <fieldset className="unclickable bg-white shadow-lg rounded-2xl w-full sm:w-1/2 hover:shadow-xl transition border-gray-100 border-1">
-          <span className="text-3xl font-semibold absolute mx-25 mt-25">~Coming Soon~</span>
+          <span className="text-3xl font-semibold absolute mx-25 mt-25 text-gray-600">~Coming Soon~</span>
           <div className=" blur relative text-center p-6">
             <FaMagic className="text-4xl text-purple-500 mx-auto mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Imagine</h2>

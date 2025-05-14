@@ -68,9 +68,9 @@ export default function SuggestedPrompts() {
                 onClick={(e) => handlePromptSelection(p)}
               >
                 {p}
-                {showIcon && index === indexIn && (
+                {/* {showIcon && index === indexIn && (
                   <FaArrowUp className="text-black -mt-1 inline" />
-                )}
+                )} */}
               </p>
             </div>
           ))
