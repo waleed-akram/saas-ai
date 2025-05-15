@@ -1,5 +1,3 @@
-
-import { ContextProvider } from "./context";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 

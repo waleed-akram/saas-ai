@@ -94,11 +94,11 @@ export default function InputSection({ sentFrom }: { sentFrom: string }) {
 
   return (
     <div className="place-items-center p-5">
-      <div className="border-1 border-gray-300 shadow-lg pl-3 py-1 flex flex-row place-items-center rounded-4xl min-w-120 min-h-14">
-        <div className="overflow-none">
+      <div className="border-1 border-gray-300 shadow-lg place-items-center flex flex-row  rounded-4xl min-w-120 ">
+        <div className="p-2">
           <textarea
             cols={10}
-            className="max-h-30 resize-none w-150 break-word focus:outline-none text-lg h-6 ml-1"
+            className="max-h-40 h-8 pt-1 px-5 overflow-hidden resize-none w-150 break-word focus:outline-none text-lg ml-3 "
             placeholder="Type anything"
             value={prompt}
             onFocus={triggerFocus}
