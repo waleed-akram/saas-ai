@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { RiRobot3Line } from "react-icons/ri";
-import { FaComments, FaMagic } from "react-icons/fa";
+import { FaComments, FaMagic, FaToolbox } from "react-icons/fa";
 
 export default function SideBar() {
   return (
@@ -17,7 +17,7 @@ export default function SideBar() {
         </Link>
       </div>
       <div className="flex flex-col gap-1 px-2 -mt-50 mr-1.5">
-        <span className="text-3xl p-1 ">~Our Tools~</span>
+        <div className="flex gap-1 p-1"> <FaToolbox className="text-3xl"/> <span className="text-3xl">Our Tools</span></div>
         <Link href="/response-section/firstTool" className="btn">
           <FaComments className="text-xl inline mr-2 text-white" />
           Chat buddy

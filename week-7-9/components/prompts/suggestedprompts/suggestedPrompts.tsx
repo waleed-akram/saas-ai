@@ -55,7 +55,7 @@ export default function SuggestedPrompts() {
         className="underline text-gray-500 select-none text-2xl cursor-pointer"
         onClick={toggleSuggestions}
       >
-        {showSuggestion?"Hide Suggestions":"Try Suggestions"}
+        {showSuggestion?"Hide":"Try Some Prompts?"}
       </p>
       <div className="flex flex-row gap-3 max-w-200 flex-wrap justify-center content-evenly">
         {showSuggestion && selectedTool && selectedTool > 0 ? (

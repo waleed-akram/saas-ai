@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 
 export default function ResponseSection({
   params,
@@ -9,6 +9,7 @@ export default function ResponseSection({
   params: string;
   sentFrom: string;
 }) {
+  const outputRef = useRef<HTMLTextAreaElement>(null);
   const [output, setOutput] = useState<string>("");
   useEffect(() => {
     if (params) {
@@ -37,15 +38,17 @@ export default function ResponseSection({
   };
 
   return (
-    <div className="h-full mx-auto rounded-md p-5 box-border w-280 min-h-80 m-4 overflow-hidden">
-      <div className="h-full w-full max-h-85">
+    <div className="h-fit mx-auto rounded-md p-5 box-border w-280 min-h-fit m-4 overflow-hidden">
+      <div className="h-fit w-full max-h-fit">
         <div className="bg-gray-200 float-right no-underline text-2xl w-200 h-fit p-5 roundedPrompt  shadow-md">
           <p>You: {params}</p>
         </div>
-        <div className="float-left bg-gray-200 mt-5 no-underline text-2xl w-full h-full min-h-78 max-h-78 px-20 py-5 roundedResponse shadow-md">
+        <div className="float-left bg-gray-200 mt-5 no-underline text-2xl w-full h-full max-h-78 px-20 py-5 roundedResponse shadow-md">
           <textarea
             readOnly
+            // ref={outputRef}
             className="w-full h-full resize-none"
+            // value={output}
             value={output}
           />
         </div>
