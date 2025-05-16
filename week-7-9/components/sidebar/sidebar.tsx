@@ -12,7 +12,7 @@ export default function SideBar() {
 
   useEffect(() => {
     const handleResize = () => {
-      updateToggleSidebar(window.innerWidth >= 1024); 
+      updateToggleSidebar(window.innerWidth >= 1024);
     };
 
     handleResize();
@@ -21,17 +21,24 @@ export default function SideBar() {
   }, []);
 
   return (
-    <div className="h-full w-80 sm-min-w-60 min-w-50 z-20 absolute animate p-4 bg-gray-100 flex flex-col gap-6 shadow-md">
+    <div className="h-full w-80 sm-min-w-60 min-w-50 z-20 absolute animate p-4 bg-gray-100 flex flex-col sm:gap-80 gap-40 shadow-md">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 text-gray-700">
-          <Link href="/">
-            <RiRobot3Line className="bg-blue-500 text-white p-1 rounded-full" size={40} />
-          </Link>
-          <span className="text-xl font-semibold">SaaS AI</span>
-        </div>
-        <button onClick={() => updateToggleSidebar(!toggleSidebar)} className="cursor-pointer ">
-          <TbLayoutSidebarFilled size={30}/>
+        <Link href="/">
+          <div className="flex items-center gap-2 text-gray-700">
+            <RiRobot3Line
+              className="bg-blue-500 text-white p-1 rounded-full"
+              size={40}
+            />
+            <span className="text-xl font-semibold">SaaS AI</span>
+          </div>
+        </Link>
+
+        <button
+          onClick={() => updateToggleSidebar(!toggleSidebar)}
+          className="cursor-pointer "
+        >
+          <TbLayoutSidebarFilled size={30} />
         </button>
       </div>
 

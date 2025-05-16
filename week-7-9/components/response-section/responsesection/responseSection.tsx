@@ -14,7 +14,7 @@ export default function ResponseSection({
 
   useEffect(() => {
     if (params) {
-      generateText();
+      // generateText();
     }
   }, [params]);
 
@@ -41,13 +41,12 @@ export default function ResponseSection({
   return (
     <div className="w-full px-4 sm:px-8 py-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-6">
-        <div className="self-end bg-blue-500 text-white text-lg sm:text-xl p-4 rounded-xl shadow-md max-w-sm w-fit">
+        <div className="self-end bg-blue-500 text-white text-lg sm:text-xl p-4 rounded-xl shadow-md sm:max-w-md">
           <p>
             <span className="font-semibold">You:</span> {params}
           </p>
         </div>
 
-        {/* Response area */}
         <div className="self-start bg-gray-100 text-gray-900 text-base sm:text-lg p-4 sm:p-6 rounded-xl shadow-md w-full">
           <textarea
             readOnly

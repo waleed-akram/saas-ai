@@ -46,8 +46,8 @@ export default function SuggestedPrompts() {
         {showSuggestion ? "Hide" : "Try Some Prompts?"}
       </p>
       <div className="flex flex-row gap-3 max-w-200 flex-wrap justify-center content-evenly">
-        {showSuggestion && selectedTool && selectedTool > 0 ? (
-          prompts[selectedTool - 1].prompt.map((p, index) => (
+        {showSuggestion && (
+          prompts[0].prompt.map((p, index) => (
             <div key={index}>
               <p
                 className="prompt"
@@ -57,9 +57,7 @@ export default function SuggestedPrompts() {
               </p>
             </div>
           ))
-        ) : (
-          <div></div>
-        )}
+        ) }
       </div>
     </>
   );

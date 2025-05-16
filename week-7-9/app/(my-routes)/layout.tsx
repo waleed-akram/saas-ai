@@ -21,7 +21,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <div className="grid grid-cols-12 grid-rows-4 w-full min-h-screen">
-      {/* <SideBar /> */}
       <ContextProvider>{children}</ContextProvider>
     </div>
   );

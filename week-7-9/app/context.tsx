@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, ReactNode, useState } from "react";
-import Prompts from "./(my-routes)/prompt/page";
+import Prompt from "./(my-routes)/prompt/page";
 import SideBar from "./(my-routes)/sidebar/page";
 import { TbLayoutSidebarFilled } from "react-icons/tb";
 
@@ -90,7 +90,8 @@ export function ContextProvider({ children }: props) {
             {children}
           </div>
         </div>
-        <Prompts />
+
+        <Prompt />
       </PromptContext.Provider>
     </>
   );
