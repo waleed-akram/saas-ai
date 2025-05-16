@@ -21,7 +21,7 @@ export default function SideBar() {
   }, []);
 
   return (
-    <div className="h-full w-80 sm-min-w-60 min-w-50 z-20 absolute p-4 bg-gray-100 flex flex-col gap-6 shadow-md">
+    <div className="h-full w-80 sm-min-w-60 min-w-50 z-20 absolute animate p-4 bg-gray-100 flex flex-col gap-6 shadow-md">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-gray-700">

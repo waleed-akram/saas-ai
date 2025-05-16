@@ -41,7 +41,6 @@ export default function ResponseSection({
   return (
     <div className="w-full px-4 sm:px-8 py-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-6">
-        {/* Prompt bubble */}
         <div className="self-end bg-blue-500 text-white text-lg sm:text-xl p-4 rounded-xl shadow-md max-w-sm w-fit">
           <p>
             <span className="font-semibold">You:</span> {params}

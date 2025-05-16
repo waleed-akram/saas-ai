@@ -5,23 +5,11 @@ import { FaArrowUp } from "react-icons/fa";
 import { usePromptContext } from "../../../app/context";
 
 export default function SuggestedPrompts() {
-  const [showIcon, setShowIcon] = useState<boolean>(false);
   const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
-  const [indexIn, setIndex] = useState<number>(0);
   const { updatePrompt, selectedTool } = usePromptContext();
-
-  function toggleIconShow(index) {
-    setShowIcon(true);
-    setIndex(index);
-  }
 
   function toggleSuggestions() {
     setShowSuggestion(!showSuggestion);
-  }
-
-  function toggleIconHide(index) {
-    setShowIcon(false);
-    setIndex(index);
   }
 
   const prompts: { for: string; prompt: string[] }[] = [
@@ -52,10 +40,10 @@ export default function SuggestedPrompts() {
   return (
     <>
       <p
-        className="underline text-gray-500 select-none text-2xl cursor-pointer"
+        className="underline text-gray-500 select-none sm:text-2xl text-md cursor-pointer"
         onClick={toggleSuggestions}
       >
-        {showSuggestion?"Hide":"Try Some Prompts?"}
+        {showSuggestion ? "Hide" : "Try Some Prompts?"}
       </p>
       <div className="flex flex-row gap-3 max-w-200 flex-wrap justify-center content-evenly">
         {showSuggestion && selectedTool && selectedTool > 0 ? (
@@ -63,14 +51,9 @@ export default function SuggestedPrompts() {
             <div key={index}>
               <p
                 className="prompt"
-                onMouseEnter={() => toggleIconShow(index)}
-                onMouseOut={() => toggleIconHide(index)}
                 onClick={(e) => handlePromptSelection(p)}
               >
                 {p}
-                {/* {showIcon && index === indexIn && (
-                  <FaArrowUp className="text-black -mt-1 inline" />
-                )} */}
               </p>
             </div>
           ))

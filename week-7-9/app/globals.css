@@ -17,7 +17,7 @@ body {
 }
 
 .prompt {
-  @apply text-2xl text-white bg-indigo-500 hover:cursor-pointer p-2 rounded-full select-none px-6 hover:bg-indigo-700 hover:text-white;
+  @apply sm:text-base text-xs text-xl text-white bg-indigo-500 hover:cursor-pointer p-2 rounded-full select-none px-6 hover:bg-indigo-700 hover:text-white;
 }
 
 .breakpoints-sidebar {

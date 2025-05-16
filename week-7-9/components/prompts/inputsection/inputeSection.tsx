@@ -74,8 +74,8 @@ export default function InputSection() {
   }
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 max-w-4xl min-w-200 mx-auto mt-6">
-      <div className="flex items-end bg-white border border-gray-300 shadow-md rounded-3xl px-4 ">
+    <div className="w-full px-4 lg:px-8 max-w-4xl mx-auto mt-6">
+      <div className="flex items-end bg-white border border-gray-300 shadow-md rounded-3xl sm:px-4 py-1 px-3 w-90 sm:w-200 lg:w-200 md:w-184">
         <textarea
           ref={inputRef}
           rows={1}
@@ -84,13 +84,13 @@ export default function InputSection() {
           onFocus={triggerFocus}
           onChange={handleChange}
           onKeyDown={handleEnter}
-          className="flex-grow resize-none max-h-40 h-6 overflow-hidden text-base focus:outline-none placeholder-gray-400"
+          className="flex-grow resize-none max-h-40 sm:h-8 h-7 overflow-hidden text-base focus:outline-none placeholder-gray-400"
         />
         <button
           className="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full"
           onClick={handleClick}
         >
-          <FaArrowUp size={20} />
+          <FaArrowUp className="sm:text-2xl text-md" />
         </button>
       </div>
     </div>

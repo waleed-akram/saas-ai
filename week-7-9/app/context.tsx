@@ -65,10 +65,7 @@ export function ContextProvider({ children }: props) {
               : "hidden"
           } h-full`}
         >
-          <div className="hidden sm:block w-full h-full">
-            <SideBar />
-          </div>
-          <div className="block lg:hidden w-full h-full">
+          <div className="block w-full h-full">
             <SideBar />
           </div>
         </div>
