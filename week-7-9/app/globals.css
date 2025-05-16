@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -21,18 +21,60 @@ body {
 }
 
 .breakpoints-sidebar {
-  @apply xl:min-w-40 md:min-w-20 sm:min-w-10
+  @apply xl:min-w-40 md:min-w-20 sm:min-w-10;
 }
 
-.unclickable{
+@media screen and (max-width: 480px) {
+  .sidebar {
+    background-color: rgb(231, 231, 231);
+    min-width: 10rem;
+    z-index: 100;
+  }
+}
+
+@media screen and (max-width: 768) {
+  .sidebar {
+    background-color: rgb(231, 231, 231);
+    min-width: 15rem;
+    z-index: 1;
+  }
+}
+
+.animate{
+  animation : slide 0.4s ease-in-out;
+}
+
+.animateR{
+  animation : slideR 0.4s ease-in-out;
+}
+
+@keyframes slide {
+  from {
+    transform:translateX(-100%)
+  }
+  to {
+    transform : translateX(0%)
+  }
+}
+
+@keyframes slideR {
+  from {
+    transform:translateX(-100%)
+  }
+  to {
+    transform : translateX(0%)
+  }
+}
+
+.unclickable {
   pointer-events: none;
   user-select: none;
 }
 
-.roundedPrompt{
-  @apply rounded-tl-[3rem] rounded-bl-[3rem] rounded-br-[3rem]
+.roundedPrompt {
+  @apply rounded-tl-[3rem] rounded-bl-[3rem] rounded-br-[3rem];
 }
 
-.roundedResponse{
-  @apply rounded-tr-[5rem] rounded-br-[5rem] rounded-bl-[5rem]
+.roundedResponse {
+  @apply rounded-tr-[5rem] rounded-br-[5rem] rounded-bl-[5rem];
 }

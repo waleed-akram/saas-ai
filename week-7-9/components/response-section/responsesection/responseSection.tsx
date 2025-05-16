@@ -40,7 +40,7 @@ export default function ResponseSection({
   return (
     <div className="h-fit mx-auto rounded-md p-5 box-border w-280 min-h-fit m-4 overflow-hidden">
       <div className="h-fit w-full max-h-fit">
-        <div className="bg-gray-200 float-right no-underline text-2xl w-200 h-fit p-5 roundedPrompt  shadow-md">
+        <div className="bg-gray-200 float-right no-underline text-2xl w-fit h-fit p-5 roundedPrompt  shadow-md text-right">
           <p>You: {params}</p>
         </div>
         <div className="float-left bg-gray-200 mt-5 no-underline text-2xl w-full h-full max-h-78 px-20 py-5 roundedResponse shadow-md">

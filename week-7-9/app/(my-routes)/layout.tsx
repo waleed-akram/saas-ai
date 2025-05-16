@@ -1,7 +1,7 @@
 import { ContextProvider } from "../context";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import SideBar from "./sidebar/page";
+// import SideBar from "./sidebar/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <div className="grid grid-cols-12 grid-rows-4 w-full min-h-screen">
-      <SideBar />
+      {/* <SideBar /> */}
       <ContextProvider>{children}</ContextProvider>
     </div>
   );

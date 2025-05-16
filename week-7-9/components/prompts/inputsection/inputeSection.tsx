@@ -5,9 +5,9 @@ import { FaArrowUp } from "react-icons/fa";
 import { usePromptContext } from "../../../app/context";
 import { useRouter } from "next/navigation";
 
-export default function InputSection({ sentFrom }: { sentFrom: string }) {
+export default function InputSection() {
   const route = useRouter();
-  const { prompt, updatePrompt, selectedTool } = usePromptContext();
+  const { prompt, updatePrompt, selectedTool, toggleSidebar } = usePromptContext();
   // const [usersimage,setUserImage] = useState<string>("");
   const [focus, setFocus] = useState<boolean>(false);
   let inputRef = useRef<HTMLTextAreaElement>(null);
@@ -73,7 +73,7 @@ export default function InputSection({ sentFrom }: { sentFrom: string }) {
     if (e.key === "Enter" && !e.shiftKey && focus) {
       e.preventDefault();
       if (prompt.trim() !== "") {
-        const result = handleSubmit();
+        handleSubmit();
         setFocus(false);
         updatePrompt("");
         resetHeight();
@@ -86,19 +86,19 @@ export default function InputSection({ sentFrom }: { sentFrom: string }) {
 
   function handleClick() {
     if (prompt !== "") {
-      const value = prompt;
-      const result = handleSubmit();
+      handleSubmit();
       setFieldHeight();
     }
   }
 
   return (
-    <div className="place-items-center p-5">
+
+    <div className="flex flex-col items-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="border-1 border-gray-300 shadow-lg place-items-center flex flex-row  rounded-4xl min-w-120 ">
         <div className="p-2">
           <textarea
             cols={10}
-            className="max-h-40 h-8 pt-1 px-5 overflow-hidden resize-none w-150 break-word focus:outline-none text-lg ml-3 "
+            className="max-h-40 h-8 pt-1 px-5 overflow-hidden resize-none w-150 break-word focus:outline-none text-lg ml-3 sm:w-96 sm:h-10 md:w-120 md:h-12"
             placeholder="Type anything"
             value={prompt}
             onFocus={triggerFocus}
