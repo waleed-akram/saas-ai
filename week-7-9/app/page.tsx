@@ -3,10 +3,13 @@ import { FaComments, FaMagic } from "react-icons/fa";
 
 export default function MainView() {
   return (
-    <main className="min-h-screen -mt-15 flex flex-col items-center justify-center px-6 text-gray-800 bg-gray-50">
+    <main className="min-h-screen flex mt-10 flex-col items-center justify-center px-6 text-gray-800 bg-gray-50">
       <h1 className="text-4xl sm:text-5xl font-bold text-center mb-4">
-        Welcome to Your Productivity Hub
+        SaaS AI
       </h1>
+      <h2 className="text-2xl shadow-inner p-3 sm:text-5xl text-gray-600 font-bold text-center mb-4 bg-gray-200">
+        Welcome to Your Productivity Hub
+      </h2>
       <p className="text-lg sm:text-xl text-center max-w-2xl mb-12 text-gray-600">
         Streamline your workflow with two powerful tools designed to boost
         creativity and communication. Whether you&apos;re brainstorming ideas or
@@ -30,8 +33,12 @@ export default function MainView() {
           </Link>
         </div>
 
-        <fieldset className="unclickable bg-white shadow-lg rounded-2xl w-full sm:w-1/2 hover:shadow-xl transition border-gray-100 border-1">
-          <span className="text-3xl font-semibold absolute mx-25 mt-25 text-gray-600">~Coming Soon~</span>
+        <fieldset className="unclickable bg-white shadow-lg rounded-2xl w-full sm:w-1/2 hover:shadow-xl transition border-gray-100 border-1 mb-10 sm:mb-0">
+          <div className="flex justify-center">
+            <span className="text-xl sm:text-3xl  font-semibold absolute mt-30 sm:mt-25 text-gray-600 ">
+              Coming Soon
+            </span>
+          </div>
           <div className=" blur relative text-center p-6">
             <FaMagic className="text-4xl text-purple-500 mx-auto mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Imagine</h2>

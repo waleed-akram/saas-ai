@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ResponseSection({
   params,
@@ -11,11 +11,13 @@ export default function ResponseSection({
 }) {
   const outputRef = useRef<HTMLTextAreaElement>(null);
   const [output, setOutput] = useState<string>("");
+
   useEffect(() => {
     if (params) {
       generateText();
     }
   }, [params]);
+
   const generateText = async () => {
     try {
       console.log("sending req");
@@ -29,27 +31,30 @@ export default function ResponseSection({
       console.log("req sent");
 
       const data = await response.json();
-      console.log("req recieved");
+      console.log("req received");
       setOutput(data.output);
-      // console.log(data.output);
     } catch (error) {
       console.error("Error calling API route:", error);
     }
   };
 
   return (
-    <div className="h-fit mx-auto rounded-md p-5 box-border w-280 min-h-fit m-4 overflow-hidden">
-      <div className="h-fit w-full max-h-fit">
-        <div className="bg-gray-200 float-right no-underline text-2xl w-fit h-fit p-5 roundedPrompt  shadow-md text-right">
-          <p>You: {params}</p>
+    <div className="w-full px-4 sm:px-8 py-6">
+      <div className="max-w-4xl mx-auto flex flex-col gap-6">
+        {/* Prompt bubble */}
+        <div className="self-end bg-blue-500 text-white text-lg sm:text-xl p-4 rounded-xl shadow-md max-w-sm w-fit">
+          <p>
+            <span className="font-semibold">You:</span> {params}
+          </p>
         </div>
-        <div className="float-left bg-gray-200 mt-5 no-underline text-2xl w-full h-full max-h-78 px-20 py-5 roundedResponse shadow-md">
+
+        {/* Response area */}
+        <div className="self-start bg-gray-100 text-gray-900 text-base sm:text-lg p-4 sm:p-6 rounded-xl shadow-md w-full">
           <textarea
             readOnly
-            // ref={outputRef}
-            className="w-full h-full resize-none"
-            // value={output}
+            ref={outputRef}
             value={output}
+            className="w-full h-48 sm:h-64 resize-none bg-transparent outline-none"
           />
         </div>
       </div>

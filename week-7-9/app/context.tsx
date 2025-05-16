@@ -4,7 +4,6 @@ import Prompts from "./(my-routes)/prompt/page";
 import SideBar from "./(my-routes)/sidebar/page";
 import { TbLayoutSidebarFilled } from "react-icons/tb";
 
-// const PromptContext = createContext("");
 type contextType = {
   prompt: string | null;
   updatePrompt: (value: string) => void;
@@ -62,14 +61,14 @@ export function ContextProvider({ children }: props) {
         <div
           className={`${
             toggleSidebar
-              ? "grid col-span-2 row-span-4 sm:w-full sm:min-h-screen" 
+              ? "grid col-span-2 row-span-4 sm:w-full sm:min-h-screen"
               : "hidden"
           } h-full`}
         >
-          <div className="hidden lg:block w-full h-full">
+          <div className="hidden sm:block w-full h-full">
             <SideBar />
           </div>
-          <div className="block lg:hidden w-full h-full overflow-auto">
+          <div className="block lg:hidden w-full h-full">
             <SideBar />
           </div>
         </div>

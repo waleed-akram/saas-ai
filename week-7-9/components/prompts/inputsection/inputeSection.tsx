@@ -6,78 +6,60 @@ import { usePromptContext } from "../../../app/context";
 import { useRouter } from "next/navigation";
 
 export default function InputSection() {
-  const route = useRouter();
-  const { prompt, updatePrompt, selectedTool, toggleSidebar } = usePromptContext();
-  // const [usersimage,setUserImage] = useState<string>("");
-  const [focus, setFocus] = useState<boolean>(false);
-  let inputRef = useRef<HTMLTextAreaElement>(null);
+  const router = useRouter();
+  const { prompt, updatePrompt, selectedTool } = usePromptContext();
+  const [focus, setFocus] = useState(false);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   function triggerFocus() {
     setFocus(true);
   }
 
   const handleSubmit = () => {
+    if (!prompt.trim()) {
+      alert("Please enter a prompt.");
+      return;
+    }
+
+    updatePrompt("");
+
     if (selectedTool === 1) {
-      updatePrompt("");
-      route.push(
-        `/response-section/firstTool/response?value=${encodeURIComponent(
-          prompt
-        )}`
-      );
+      router.push(`/response-section/firstTool/response?value=${encodeURIComponent(prompt)}`);
     } else if (selectedTool === 2) {
-      updatePrompt("");
-      route.push(
-        `/response-section/secondTool/response?value=${encodeURIComponent(
-          prompt
-        )}`
-      );
-    } else {
-      updatePrompt("");
-      return "failure";
+      router.push(`/response-section/secondTool/response?value=${encodeURIComponent(prompt)}`);
     }
   };
 
   function setFieldHeight() {
     const textarea = inputRef.current;
     if (textarea) {
-      textarea.style.height = "0";
-
+      textarea.style.height = "0px";
       const scrollHeight = textarea.scrollHeight;
       const maxHeight = parseInt(getComputedStyle(textarea).maxHeight, 10);
 
-      if (scrollHeight > maxHeight) {
-        textarea.style.height = `${maxHeight}px`;
-        textarea.style.overflowY = "auto";
-      } else {
-        textarea.style.height = `${scrollHeight}px`;
-        textarea.style.overflowY = "hidden";
-      }
+      textarea.style.height = scrollHeight > maxHeight ? `${maxHeight}px` : `${scrollHeight}px`;
+      textarea.style.overflowY = scrollHeight > maxHeight ? "auto" : "hidden";
     }
   }
 
   function resetHeight() {
     const textarea = inputRef.current;
-    textarea.style.height = `2rem`;
+    if (textarea) textarea.style.height = "2rem";
   }
 
-  function handleChange(e) {
-    if (e.key !== "Enter") {
-      updatePrompt(e.target.value);
-      setFieldHeight();
-    } else {
-      updatePrompt("");
-    }
+  function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    updatePrompt(e.target.value);
+    setFieldHeight();
   }
 
-  function handleEnter(e) {
+  function handleEnter(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey && focus) {
       e.preventDefault();
-      if (prompt.trim() !== "") {
+      if (prompt.trim()) {
         handleSubmit();
         setFocus(false);
-        updatePrompt("");
         resetHeight();
-      } else if (prompt.trim() === "") {
+      } else {
         alert("No prompt entered!");
         updatePrompt("");
       }
@@ -85,47 +67,32 @@ export default function InputSection() {
   }
 
   function handleClick() {
-    if (prompt !== "") {
+    if (prompt.trim()) {
       handleSubmit();
       setFieldHeight();
     }
   }
 
   return (
-
-    <div className="flex flex-col items-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="border-1 border-gray-300 shadow-lg place-items-center flex flex-row  rounded-4xl min-w-120 ">
-        <div className="p-2">
-          <textarea
-            cols={10}
-            className="max-h-40 h-8 pt-1 px-5 overflow-hidden resize-none w-150 break-word focus:outline-none text-lg ml-3 sm:w-96 sm:h-10 md:w-120 md:h-12"
-            placeholder="Type anything"
-            value={prompt}
-            onFocus={triggerFocus}
-            onChange={handleChange}
-            onKeyDown={handleEnter}
-            ref={inputRef}
-          />
-        </div>
-        <div
-          className="bg-indigo-500 cursor-pointer hover:bg-indigo-800 hover:border-none h-fit rounded-full p-1.5 px-1.5 mr-2 outline-none"
+    <div className="w-full px-4 sm:px-6 lg:px-8 max-w-4xl min-w-200 mx-auto mt-6">
+      <div className="flex items-end bg-white border border-gray-300 shadow-md rounded-3xl px-4 ">
+        <textarea
+          ref={inputRef}
+          rows={1}
+          placeholder="Type anything..."
+          value={prompt}
+          onFocus={triggerFocus}
+          onChange={handleChange}
+          onKeyDown={handleEnter}
+          className="flex-grow resize-none max-h-40 h-6 overflow-hidden text-base focus:outline-none placeholder-gray-400"
+        />
+        <button
+          className="bg-indigo-500 hover:bg-indigo-600 text-white p-2 rounded-full"
           onClick={handleClick}
         >
-          <FaArrowUp className="text-white" size={25} />
-        </div>
+          <FaArrowUp size={20} />
+        </button>
       </div>
-      
-      {/* <div className="w-fit">
-        {sentFrom && sentFrom === "imagine" ? (
-          <div className="border-gray-200 border-1 p-2 w-fit rounded-md mt-5 text-center bg-pink-600 text-white hover:cursor-pointer">
-            <input type="file" id="file" accept="image/*" className="hover:cursor-pointer hidden"/>
-            <label htmlFor="file" className="hover:cursor-pointer">Select an image</label>
-            <div>{usersImage}</div>
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </div> */}
     </div>
   );
 }
