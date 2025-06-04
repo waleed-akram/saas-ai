@@ -14,7 +14,7 @@ export default function ResponseSection({
 
   useEffect(() => {
     if (params) {
-      // generateText();
+      generateText();
     }
   }, [params]);
 
